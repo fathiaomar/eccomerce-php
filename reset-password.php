@@ -56,8 +56,9 @@ if(isset($_POST['form1'])) {
     if($valid == 1) {
 
         $cust_new_password = strip_tags($_POST['cust_new_password']);
+        $password_hash = password_hash($cust_new_password, PASSWORD_DEFAULT);
         $statement = $pdo->prepare("UPDATE tbl_customer SET cust_password=?, cust_token=?, cust_timestamp=? WHERE cust_email=?");
-        $statement->execute(array(md5($cust_new_password),'','',$_GET['email']));
+        $statement->execute(array($password_hash,'','',$_GET['email']));
         
         header('location: '.BASE_URL.'reset-password-success.php');
     }

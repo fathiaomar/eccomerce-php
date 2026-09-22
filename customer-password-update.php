@@ -42,6 +42,7 @@ if (isset($_POST['form1'])) {
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
         
         $statement = $pdo->prepare("UPDATE tbl_customer SET cust_password=? WHERE cust_id=?");
+        $statement->execute(array($password_hash,$_SESSION['customer']['cust_id']));
         
         $_SESSION['customer']['cust_password'] = $password_hash;
 

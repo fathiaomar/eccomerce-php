@@ -39,11 +39,11 @@ if (isset($_POST['form1'])) {
         // update data into the database
 
         $password = strip_tags($_POST['cust_password']);
+        $password_hash = password_hash($password, PASSWORD_DEFAULT);
         
         $statement = $pdo->prepare("UPDATE tbl_customer SET cust_password=? WHERE cust_id=?");
-        $statement->execute(array(md5($password),$_SESSION['customer']['cust_id']));
         
-        $_SESSION['customer']['cust_password'] = md5($password);        
+        $_SESSION['customer']['cust_password'] = $password_hash;
 
         $success_message = LANG_VALUE_141;
     }

@@ -21,28 +21,29 @@ if(isset($_POST['form1'])) {
 
         $statement = $pdo->prepare("SELECT * FROM tbl_customer WHERE cust_email=?");
         $statement->execute(array($cust_email));
-        $total = $statement->rowCount();
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-        foreach($result as $row) {
-            $cust_status = $row['cust_status'];
-            $row_password = $row['cust_password'];
-        }
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
 
-        if($total==0) {
+        if(!$row) {
             $error_message .= LANG_VALUE_133.'<br>';
         } else {
-            //using MD5 form
-            if( $row_password != md5($cust_password) ) {
+            $is_valid_password = password_verify($cust_password, $row['cust_password']);
+            $is_legacy_password = strlen($row['cust_password']) === 32 && hash_equals($row['cust_password'], md5($cust_password));
+
+            if(!$is_valid_password && !$is_legacy_password) {
                 $error_message .= LANG_VALUE_139.'<br>';
+            } elseif($row['cust_status'] == 0) {
+                $error_message .= LANG_VALUE_148.'<br>';
             } else {
-                if($cust_status == 0) {
-                    $error_message .= LANG_VALUE_148.'<br>';
-                } else {
-                    $_SESSION['customer'] = $row;
-                    header("location: ".BASE_URL."dashboard.php");
+                if($is_legacy_password) {
+                    $password_hash = password_hash($cust_password, PASSWORD_DEFAULT);
+                    $statement = $pdo->prepare("UPDATE tbl_customer SET cust_password=? WHERE cust_id=?");
+                    $statement->execute(array($password_hash, $row['cust_id']));
+                    $row['cust_password'] = $password_hash;
                 }
+
+                $_SESSION['customer'] = $row;
+                header("location: ".BASE_URL."dashboard.php");
             }
-            
         }
     }
 }

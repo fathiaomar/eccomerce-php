@@ -144,7 +144,7 @@ if (isset($_POST['form1'])) {
                                         '',
                                         '',
                                         '',
-                                        md5($_POST['cust_password']),
+                                        password_hash($_POST['cust_password'], PASSWORD_DEFAULT),
                                         $token,
                                         $cust_datetime,
                                         $cust_timestamp,

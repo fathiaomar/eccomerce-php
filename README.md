@@ -1,36 +1,53 @@
 # 🛒 PHP E-Commerce Platform
 
-A lightweight, full-stack PHP e-commerce web application providing end-to-end shopping functionalities including user registration, session authentication, cart management, checkout, and customer profile administration.
+![PHP](https://img.shields.io/badge/PHP-7.4%20%7C%208.x-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Security](https://img.shields.io/badge/Security-password__hash-success?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)
+
+A full-stack, session-authenticated e-commerce web application built natively with PHP and MySQL. Designed to handle complete retail workflows including product management, dynamic cart updates, customer checkout, profile administration, and secure credential handling.
 
 ---
 
-## ✨ Key Features
+## 📸 Interface Preview
 
-- **Customer Authentication:** Secure account registration, login, and password management (migrated to `password_hash`).
-- **Shopping Cart System:** Add items, modify quantities, and remove items dynamically (`cart.php`, `cart-item-delete.php`).
-- **Checkout & Order Processing:** Integrated checkout flow with billing and shipping address updates (`checkout.php`, `customer-billing-shipping-update.php`).
-- **Customer Dashboard:** User profile management, password updates, and order history view (`dashboard.php`, `customer-order.php`).
-- **Product Navigation:** Search functionality and category filtering (`search-result.php`, `product-category.php`).
+| Homepage & Catalog | Shopping Cart & Checkout |
+| :---: | :---: |
+| ![Homepage Preview](https://via.placeholder.com/600x350.png?text=Add+Homepage+Screenshot+Here) | ![Cart Preview](https://via.placeholder.com/600x350.png?text=Add+Cart+Screenshot+Here) |
 
 ---
 
-## 🛠️ Tech Stack
+## ✨ Core Application Features
 
-- **Language:** PHP 100%
-- **Database:** MySQL
-- **Frontend:** HTML, CSS, JavaScript
-- **Security:** Hashed passwords (`password_hash`), email verification setup (`verify.php`), and password resets (`forget-password.php`).
+### 👤 Customer Experience
+* **Account Management:** User registration with email verification flow (`registration.php`, `verify.php`), session login (`login.php`), and password recovery (`forget-password.php`, `reset-password.php`).
+* **Product Discovery:** Search bar integration (`search-result.php`) with multi-level category navigation (`product-category.php`, `sidebar-category.php`).
+* **Cart & Billing:** Add/remove items with dynamic total calculation (`cart.php`, `cart-item-delete.php`), and shipping/billing update modules (`customer-billing-shipping-update.php`).
+* **Order Tracking:** Account dashboard displaying past purchase history and order itemization (`dashboard.php`, `customer-order.php`).
+
+### 🛡️ Security & Architecture
+* **Password Encryption:** Standardized authentication layer utilizing modern native `password_hash()` and `password_verify()` functions.
+* **Session Guarding:** Restricted route validation preventing unauthorized access to customer dashboard endpoints.
 
 ---
 
-## 🚀 Getting Started
+## 🛠️ Tech Stack & Dependencies
 
-### Prerequisites
+* **Language:** PHP (Server-side rendered)
+* **Database:** MySQL
+* **Frontend:** HTML5, CSS3, JavaScript (DOM manipulation)
+* **Server Environment:** Compatible with Apache / Nginx (XAMPP, WAMP, MAMP)
 
-- A local server environment such as **XAMPP**, **WAMP**, or **MAMP** with PHP and MySQL installed.
+---
 
-### Setup Instructions
+## 📁 Repository Structure
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/fathiaomar/eccomerce-php.git](https://github.com/fathiaomar/eccomerce-php.git)   
+```text
+├── index.php                             # Main storefront entry point
+├── cart.php & cart-item-delete.php       # Cart state & item management
+├── checkout.php                          # Checkout & order placement
+├── login.php & registration.php          # Auth & account creation
+├── customer-password-update.php          # Credential modification
+├── customer-billing-shipping-update.php  # Shipping address manager
+├── search-result.php                     # Catalog query handler
+└── verify.php                            # Email token verification

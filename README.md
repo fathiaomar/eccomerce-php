@@ -2,18 +2,9 @@
 
 [![PHP](https://img.shields.io/badge/PHP-7.4%20%7C%208.x-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net)
 [![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com)
-[![Security](https://img.shields.io/badge/Security-Password__Hash-green?style=for-the-badge)](https://www.php.net/manual/en/function.password-hash.php)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
-A full-stack, session-authenticated e-commerce web application built natively with PHP and MySQL[cite: 3]. Designed to handle complete retail workflows including product management, dynamic cart updates, customer checkout, profile administration, and secure credential handling[cite: 3].
-
----
-
-## 📸 Interface Preview
-
-| Homepage & Catalog | Shopping Cart & Checkout |
-| :---: | :---: |
-| ![Homepage Preview](assets/preview-home.png) | ![Cart Preview](assets/preview-cart.png) |
+A full-stack, session-authenticated e-commerce web application built natively with PHP and MySQL. Designed to handle complete retail workflows including product management, dynamic cart updates, customer checkout, profile administration, and secure credential handling.
 
 ---
 

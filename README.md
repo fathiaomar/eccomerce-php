@@ -22,19 +22,108 @@ A full-stack, session-authenticated e-commerce web application built natively wi
 
 ---
 
-## 🛠️ Tech Stack & Prerequisites
+## 💻 Installation Guide by Operating System
 
-* **Language:** PHP (7.4 or 8.x)
-* **Database:** MySQL / MariaDB
-* **Server Environment:** XAMPP, WAMP, or MAMP (Apache)
-* **Frontend:** HTML5, CSS3, JavaScript
+Choose the instructions matching your laptop's operating system:
 
 ---
 
-## 🚀 Local Installation & Setup Guide
+### 🪟 1. Windows (XAMPP / WAMP)
 
-### 1. Clone or Download the Project
-Clone this repository directly into your local web server root folder (e.g., `C:\xampp\htdocs\`):
-```bash
-cd C:\xampp\htdocs
-git clone [https://github.com/fathiaomar/eccomerce-php.git](https://github.com/fathiaomar/eccomerce-php.git) eCommerceSite-PHP
+#### Prerequisites
+- Install **XAMPP for Windows** or **WampServer**.
+
+#### Setup Steps:
+1. Open Command Prompt or PowerShell and run:
+   ```bash
+   cd C:\xampp\htdocs
+   git clone https://github.com/fathiaomar/eccomerce-php.git eCommerceSite-PHP
+   ```
+2. Open **XAMPP Control Panel** and click **Start** for **Apache** and **MySQL**.
+
+---
+
+### 🍎 2. macOS (XAMPP for Mac / MAMP)
+
+#### Prerequisites
+- Install **XAMPP for Mac** or **MAMP**.
+
+#### Setup Steps:
+1. Open Terminal (`Cmd` + `Space`, type `Terminal`) and run:
+   - For XAMPP:
+     ```bash
+     cd /Applications/XAMPP/htdocs
+     git clone https://github.com/fathiaomar/eccomerce-php.git eCommerceSite-PHP
+     ```
+   - For MAMP:
+     ```bash
+     cd /Applications/MAMP/htdocs
+     git clone https://github.com/fathiaomar/eccomerce-php.git eCommerceSite-PHP
+     ```
+2. Open XAMPP or MAMP and start the servers.
+
+---
+
+### 🐧 3. Linux / Ubuntu (LAMP / XAMPP)
+
+#### Setup Steps:
+1. Open Terminal (`Ctrl` + `Alt` + `T`) and run:
+   - For XAMPP:
+     ```bash
+     cd /opt/lampp/htdocs
+     git clone https://github.com/fathiaomar/eccomerce-php.git eCommerceSite-PHP
+     ```
+   - For LAMP:
+     ```bash
+     cd /var/www/html
+     git clone https://github.com/fathiaomar/eccomerce-php.git eCommerceSite-PHP
+     ```
+2. Start services:
+   - For XAMPP: `sudo /opt/lampp/lampp start`
+   - For LAMP: `sudo systemctl start apache2 mysql`
+
+---
+
+## 🗄️ Database Setup (All Systems)
+
+1. Open your web browser and go to `http://localhost/phpmyadmin/`.
+2. Create a new database named **`ecommerce_db`**.
+3. Select **`ecommerce_db`**, click the **SQL** tab at the top, paste this command, and click **Go**:
+   ```sql
+   SET GLOBAL innodb_strict_mode = 0;
+   ```
+4. Click the **Import** tab at the top.
+5. Click **Choose File**, select the `.sql` database file included inside your cloned project folder, and click **Go** at the bottom.
+
+---
+
+## ⚙️ Configuration & Running
+
+1. Open `inc/config.php` in your code editor and verify your local database settings match:
+   ```php
+   $dbhost = 'localhost';
+   $dbuser = 'root';
+   $dbpass = '';
+   $dbname = 'ecommerce_db';
+
+   define("BASE_URL", "http://localhost/eCommerceSite-PHP/");
+   ```
+2. Open your web browser and visit:
+   ```text
+   http://localhost/eCommerceSite-PHP/
+   ```
+
+---
+
+## 📁 Repository Structure
+
+```text
+├── index.php                             # Main storefront entry point
+├── cart.php & cart-item-delete.php       # Cart state & item management
+├── checkout.php                          # Checkout & order placement
+├── login.php & registration.php          # Auth & account creation
+├── customer-password-update.php          # Credential modification
+├── customer-billing-shipping-update.php  # Shipping address manager
+├── search-result.php                     # Catalog query handler
+└── verify.php                            # Email token verification
+```

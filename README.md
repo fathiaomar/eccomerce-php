@@ -1,4 +1,4 @@
-# 🛒 PHP E-Commerce Platform
+ # 🛒 PHP E-Commerce Platform
 
 [![PHP](https://img.shields.io/badge/PHP-7.4%20%7C%208.x-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net)
 [![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com)
@@ -7,7 +7,7 @@
 A full-stack, session-authenticated e-commerce web application built natively with PHP and MySQL. Designed to handle complete retail workflows including product management, dynamic cart updates, customer checkout, profile administration, and secure credential handling.
 
 ---
-https://youtu.be/MfMWsOBko9s
+[![Watch PHP E-Commerce Demo](https://img.youtube.com/vi/MfMWsOBko9s/maxresdefault.jpg)](https://youtu.be/MfMWsOBko9s)
 ## ✨ Core Application Features
 
 ### 👤 Customer Experience

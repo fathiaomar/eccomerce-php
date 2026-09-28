@@ -7,7 +7,7 @@
 A full-stack, session-authenticated e-commerce web application built natively with PHP and MySQL. Designed to handle complete retail workflows including product management, dynamic cart updates, customer checkout, profile administration, and secure credential handling.
 
 ---
-
+https://youtu.be/MfMWsOBko9s
 ## ✨ Core Application Features
 
 ### 👤 Customer Experience

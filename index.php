@@ -112,7 +112,7 @@ foreach ($result as $row)
                         </div>
                     </div>
                     <?php
-                }
+                } 
             ?>
         </div>
     </div>
